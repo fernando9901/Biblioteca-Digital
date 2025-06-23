@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="card text-white bg-primary mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Total de Livros</h5>
+        <p class="card-text display-4">{{totalLivros}}</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-4">
+    <div class="card text-white bg-success mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Total de Usuários</h5>
+        <p class="card-text display-4">{{totalUsuarios}}</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="col-md-4">
+    <div class="card text-white bg-warning mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Empréstimos Ativos</h5>
+        <p class="card-text display-4">{{totalEmprestimos}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mt-4">
+  <div class="card-header">
+    <h5>Últimos Empréstimos</h5>
+  </div>
+  <div class="card-body">
+    {{#if ultimosEmprestimos.length}}
+      <ul class="list-group">
+        {{#each ultimosEmprestimos}}
+          <li class="list-group-item">
+            {{this.livro.titulo}} - {{this.usuario.nome}} (Devolução: {{formatDate this.dataDevolucaoPrevista}})
+          </li>
+        {{/each}}
+      </ul>
+    {{else}}
+      <div class="alert alert-info">Nenhum empréstimo recente</div>
+    {{/if}}
+  </div>
+</div>
